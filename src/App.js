@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import SearchBar from './SearchBar'
+import Content from './Content'
 
 function App() {
+  const [city, setCity] = useState("");
+  const [temperature, setTemperature] = useState("");
+  const [icon, setIcon] = useState("");
+  const [weatherCondition, setWeatherCondition] = useState("");
+  const [country, setCountry] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="weather-container">
+      <SearchBar
+        setCity = {setCity}
+        setTemperature = {setTemperature}
+        setIcon = {setIcon}
+        setWeatherCondition = {setWeatherCondition}
+        setCountry = {setCountry}
+      />
+      <Content
+        city={city}
+        country = {country}
+        icon = {icon}
+        weatherCondition = {weatherCondition}
+        temperature={temperature}
+      />
     </div>
   );
 }
