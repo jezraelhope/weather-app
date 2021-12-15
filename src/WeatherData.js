@@ -1,5 +1,4 @@
 
-const API_KEY = "481c2a5fab774c7df812a52d8bbae5dc"
 
 async function  getWeather(city, event, props, setCity) {
     event.preventDefault()
