@@ -3,7 +3,8 @@ import getWeather from './WeatherData'
 
 
 function SearchBar(props) {
-    const [city, setCity] = useState("")
+    const [city, setCity] = useState("");
+    const getErrorMessage = props.getErrorMessage;
 
     function handleChange(event) {
         const {value} = event.target
@@ -12,7 +13,7 @@ function SearchBar(props) {
 
     return (
         <form
-            onSubmit={async (event)=> await getWeather(city, event, props, setCity)}
+            onSubmit={async (event)=> await getWeather(getErrorMessage, city, event, props, setCity)}
         >
             <input
                 type="text"
